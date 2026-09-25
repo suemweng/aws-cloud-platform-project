@@ -13,6 +13,16 @@ Established a minimal application baseline.
 - Added `/health` health-check endpoint
 - Served the application locally with Uvicorn
 
+### v0.2.0 — Containerized Application
+
+Containerized the FastAPI application to provide a consistent and portable runtime environment.
+
+- Added a Dockerfile using Python 3.12 slim
+- Packaged application dependencies into the container image
+- Added `.dockerignore` to reduce unnecessary build context
+- Optimized Docker layer caching by installing dependencies before copying application source code
+- Exposed the FastAPI service through Uvicorn on port 8000
+
 **Architecture:**
 
-Client → Uvicorn → FastAPI
+Client → Host Port 8000 → Docker Container → Uvicorn → FastAPI

@@ -4,7 +4,7 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return{"message": "Cloud Platform Project"}
+    return{"message": "AWS Cloud Platform Project"}
 
 @app.get("/health")
 def health():
