@@ -13,6 +13,10 @@ Established a minimal application baseline.
 - Added `/health` health-check endpoint
 - Served the application locally with Uvicorn
 
+**Architecture:**
+
+Client → Uvicorn → FastAPI
+
 ### v0.2.0 — Containerized Application
 
 Containerized the FastAPI application to provide a consistent and portable runtime environment.
@@ -25,4 +29,19 @@ Containerized the FastAPI application to provide a consistent and portable runti
 
 **Architecture:**
 
-Client → Host Port 8000 → Docker Container → Uvicorn → FastAPI
+Client → Host Port → Docker → Uvicorn → FastAPI
+
+### v0.3.0 — Private Container Registry
+
+Published the containerized application to Amazon ECR with least-privilege IAM access.
+
+- Created a private Amazon ECR repository for application images
+- Configured a dedicated IAM identity for local development
+- Implemented least-privilege ECR permissions for repository access and image publishing
+- Authenticated Docker with Amazon ECR using AWS CLI credentials
+- Tagged and pushed the application image to the private registry
+- Verified the published image using its SHA-256 digest
+
+**Architecture:**
+
+Local Development → Docker Image → Amazon ECR Private Registry
