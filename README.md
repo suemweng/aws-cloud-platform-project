@@ -45,3 +45,18 @@ Published the containerized application to Amazon ECR with least-privilege IAM a
 **Architecture:**
 
 Local Development → Docker Image → Amazon ECR Private Registry
+
+### v0.4.0 — Infrastructure as Code with Terraform
+
+Introduced Terraform to manage AWS infrastructure as code.
+
+- Configured the AWS provider for the development environment
+- Imported the existing Amazon ECR repository into Terraform state
+- Managed the ECR repository through declarative Terraform configuration
+- Applied least-privilege IAM permissions required by Terraform
+- Enabled immutable image tags to protect versioned container artifacts
+- Verified infrastructure convergence with `terraform plan`
+
+**Infrastructure workflow:**
+
+Terraform Configuration → Terraform State → AWS Infrastructure
